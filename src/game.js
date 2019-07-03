@@ -48,7 +48,7 @@ function play(players) {
 // as well seeding their initial health
 function playMatch(p1, p2) {
   console.log(`~~~~~~~~ ${p1.name} - vs - ${p2.name} ~~~~~~~~~~`);
-  let players = [
+  let candidates = [
     { matchHealth: p1.health, player: p1 },
     { matchHealth: p2.health, player: p2 }
   ];
@@ -60,6 +60,9 @@ function playMatch(p1, p2) {
     if (maybeWinner) return maybeWinner;
   }
 
+  // play new rounds until a round ends with a winner
+  // the match health for each player will be tracked in a candidate object
+  // with a pointer to the player (treat as immutable)
   function playRound() {
     console.log(`######## ROUND ${++i} ########`);
 
@@ -92,7 +95,7 @@ function playMatch(p1, p2) {
         r1 > r2 ? r1 : r2
       } > ${r1 > r2 ? r2 : r1})`
     );
-    return first === p1 ? [players[0], players[1]] : [players[1], players[0]];
+    return first === p1 ? [candidates[0], candidates[1]] : [candidates[1], candidates[0]];
   }
 
   function resolveAttack(attacker, defender) {
