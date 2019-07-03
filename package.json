@@ -1,0 +1,16 @@
+{
+  "name": "applicant-slap",
+  "version": "1.0.0",
+  "description": "applicant-slap-battle",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Josh Story",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "csvtojson": "^2.0.10",
+    "jest": "^24.8.0"
+  }
+}
